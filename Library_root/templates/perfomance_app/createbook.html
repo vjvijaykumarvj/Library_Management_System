@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+
+{% block title_content %}
+{% if library.id %}
+<title> Book Update  </title>
+{% else %}
+<title>Book Create</title>
+{% endif %}
+{% endblock %}
+
+{% block page_content %}
+{% if library.id %}
+<h1>Book Update </h1>
+{% else %}
+<h1>Book Create</h1>
+{% endif %}
+<br>
+<form class="row g-3" method="POST">
+	{% csrf_token %}
+	  <div class="row mb-1">
+		<label class="col-form-label">Enter Booknumber</label>
+		<div class="col-sm-4">
+		  <input type="text" name="Booknumber" class="form-control form-control-sm" value="{{library.Booknumber}}">
+		</div>
+	  </div>
+    <div class="row mb-1">
+		<label class="col-form-label">Enter Bookauthor</label>
+		<div class="col-sm-4">
+		  <input type="text" name="Bookauthor" class="form-control form-control-sm" value="{{library.Bookauthor}}">
+		</div>
+	  </div>
+    <div class="row mb-1">
+		<label class="col-form-label">Enter Bookname</label>
+		<div class="col-sm-4">
+		  <input type="text" name="Bookname" class="form-control form-control-sm" value="{{library.Bookname}}">
+		</div>
+	  </div>
+
+	<div class="row mb-1">
+		<label class="col-form-label">Enter department</label>
+		<div class="col-sm-4">
+		  <input type="text" name="department" class="form-control form-control-sm" value="{{library.department}}">
+		</div>
+	  </div>
+	{% if library.id %}
+    <div class="form-group">
+		<button type="submit" class="btn btn-primary">Update Book</button>
+	  </div>
+	{% else %}
+	<div class="form-group">
+		<button type="submit" class="btn btn-primary">Create Book</button>
+	  </div>
+	{% endif %}
+</form>
+{% endblock %}

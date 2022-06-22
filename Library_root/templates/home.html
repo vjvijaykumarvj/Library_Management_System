@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block title_content %}
+<title>Home</title>
+  {% endblock %}
+{% block page_content %}
+{% if user.is_authenticated %}
+<h1> Hello {{user.first_name}} {{user.last_name}}</h1>
+<h2> select the operations  </h2>
+<br>
+<a href="/perfomance/dashboard/"><button>Library Dashboard</button></a>
+
+<br><br>
+{% else %}
+<h1>THIS IS HOME PAGE</h1>
+{% endif %}
+{% endblock %}
